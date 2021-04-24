@@ -1,5 +1,5 @@
 <h1 align="center">
-<p>Project Name</a></p>
+<p>Linguistic Annotation</a></p>
 </h1>
 
 ### Project Description
