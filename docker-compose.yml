@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+        python:
+                build:
+                        context: ./dockerfiles
+                        dockerfile: ./dockerfiles/Dockerfile.cpu
+                restart: always
+                networks: ["linguistic-annotation"]
+                ports:
+                        - "8888:8888"
+
+                volumes:
+                        - type: bind
+                          source: .
+                          target: /home/jovyan/work
+                depends_on:
+                        - neo4j
+                working_dir: /home/jovyan/work
+                environment: 
+                        - JUPYTER_ENABLE_LAB=yes
+
+        neo4j:
+                image: "neo4j:latest"
+                restart: always
+                networks: ["linguistic-annotation"]
+                ports:
+                        - "7474:7474"
+                        - "7687:7687"
+                        - "7473:7473"
+                        - "6362:6362"
+                volumes:
+                        - type: bind
+                          source: .data/databases/neo4j/data
+                          target: /data
+                        - type: bind
+                          source: .data/databases/neo4j/logs
+                          target: /logs
+                        - type: bind
+                          source: .data/databases/neo4j/import
+                          target: /import
+                        - type: bind
+                          source: .data/databases/neo4j/plugins
+                          target: /var/lib/neo4j/plugins
+                        - type: bind
+                          source: .data/databases/neo4j/conf
+                          target: /var/lib/neo4j/conf
+                environment:
+                        - NEO4J_AUTH=neo4j/linguistic-annotation
+
+networks:
+        linguistic-annotation:
