@@ -17,8 +17,8 @@ services:
                 depends_on:
                         - neo4j
                 working_dir: /home/jovyan/work
-                environment: 
-                        - JUPYTER_ENABLE_LAB=yes
+                # environment: 
+                #         - JUPYTER_ENABLE_LAB=yes
 
         neo4j:
                 image: "neo4j:latest"
