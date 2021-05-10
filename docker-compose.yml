@@ -3,8 +3,8 @@ version: '3.8'
 services:
         python:
                 build:
-                        context: ./dockerfiles
-                        dockerfile: ./dockerfiles/Dockerfile.cpu
+                        context: .
+                        dockerfile: dockerfiles/Dockerfile
                 restart: always
                 networks: ["linguistic-annotation"]
                 ports:
@@ -31,22 +31,22 @@ services:
                         - "6362:6362"
                 volumes:
                         - type: bind
-                          source: .data/databases/neo4j/data
+                          source: ./data/databases/neo4j/data
                           target: /data
                         - type: bind
-                          source: .data/databases/neo4j/logs
+                          source: ./data/databases/neo4j/logs
                           target: /logs
                         - type: bind
-                          source: .data/databases/neo4j/import
+                          source: ./data/databases/neo4j/import
                           target: /import
                         - type: bind
-                          source: .data/databases/neo4j/plugins
+                          source: ./data/databases/neo4j/plugins
                           target: /var/lib/neo4j/plugins
                         - type: bind
-                          source: .data/databases/neo4j/conf
+                          source: ./data/databases/neo4j/conf
                           target: /var/lib/neo4j/conf
                 environment:
-                        - NEO4J_AUTH=neo4j/linguistic-annotation
+                        - NEO4J_AUTH=neo4j/1234
 
 networks:
         linguistic-annotation:

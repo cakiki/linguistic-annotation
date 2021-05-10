@@ -10,8 +10,9 @@ run-jupyter: build
 	--mount type=bind,source=${PWD},target=/home/jovyan/work --name ${NAME} \
 	--workdir=/home/jovyan/work ${NAME}:${VERSION}
 
-run-all:
-	docker-compose up
-
-fix-permissions:
+clean:
+	docker-compose down
 	sudo chown -R 1000:1000 .
+
+run-all: clean
+	docker-compose up
