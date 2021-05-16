@@ -2,6 +2,8 @@
 <p>Linguistic Annotation</a></p>
 </h1>
 
+![](reports/figures/example.png)
+
 ### Project Description
 <details>
 <summary><b>Goals</b>
