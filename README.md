@@ -2,6 +2,7 @@
 <p>Linguistic Annotation</a></p>
 </h1>
 
+![](reports/figures/sentences.png)
 ![](reports/figures/example.png)
 ![](reports/figures/example_300.png)
 
