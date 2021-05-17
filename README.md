@@ -3,6 +3,7 @@
 </h1>
 
 ![](reports/figures/example.png)
+![](reports/figures/example_300.png)
 
 ### Project Description
 <details>
